@@ -1,6 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'theme.css';
+@import 'my-theme.css';
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.search-wrapper {
+  .p-autocomplete-input.p-inputtext {
+    border: none;
+    height: 37px;
+    bottom: 7px !important;
+    position: relative;
+    box-shadow: none;
+    background-color: transparent;
+  }
+}
+
+// .form-control:enabled:focus {
+//   box-shadow: inset 0 0 0 1px #860063, inset 0 0 0 1px #860063, inset 0 0 0 1px #860063, inset 0 0 0 1px #860063;
+//   outline: 0 none;
+//   outline-offset: 0;
+//   border-color: #860063;
+// }
+
+
+/* Reset default styles for select */
+select {
+  appearance: none;
+  border: 1px solid #860063;
+  padding: 8px;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 4px;
+  position: relative;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='6'%3E%3Cpath d='M1 1L6 5 11 1' stroke='%23860063' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+/* Apply styles similar to PrimeNG dropdown */
+.custom-select select:focus {
+  border-color: #860063;
+  box-shadow: 0 0 5px rgba(134, 0, 99, 0.6);
+  outline: none;
+}
+
+/* Simulate hover effect */
+.custom-select select:hover {
+  border-color: #860063;
+}
+
+/* Simulate selected option */
+.custom-select select option:checked {
+  background-color: #f0f0f0;
+}
+
+/* Adjust the width of the select element */
+.custom-select select {
+  width: 200px;
+}

@@ -15,7 +15,11 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { HttpClientModule } from '@angular/common/http';
 import { ButtonModule } from 'primeng/button';
 import { PanelMenuModule } from 'primeng/panelmenu';
-import {ScrollTopModule} from 'primeng/scrolltop';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { RippleModule } from 'primeng/ripple';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 
 @NgModule({
@@ -37,7 +41,12 @@ import {ScrollTopModule} from 'primeng/scrolltop';
     HttpClientModule,
     ButtonModule,
     PanelMenuModule,
-    ScrollTopModule
+    ScrollTopModule,
+    ButtonModule,
+    RippleModule,
+    AutoCompleteModule,
+    OverlayPanelModule,
+    AutoFocusModule
   ],
   providers: [],
   bootstrap: [AppComponent]
