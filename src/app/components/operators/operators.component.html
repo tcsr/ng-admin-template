@@ -1,0 +1,11 @@
+<p>operators works!</p>
+<div class="spinner-grow spinner-grow-sm mr-4" role="status" aria-hidden="true"></div>
+<div class="spinner-grow spinner-grow-sm ml-4" role="status" aria-hidden="true"></div>
+
+<ng-container *ngIf="users$ | async as users">
+  <ul>
+    <!-- <li *ngFor="let user of users$">
+      {{ user  }}
+    </li> -->
+  </ul>
+</ng-container>

@@ -20,12 +20,17 @@ import { RippleModule } from 'primeng/ripple';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { AutoFocusModule } from 'primeng/autofocus';
-
+import { InputNumberModule } from 'primeng/inputnumber';
+import { DockModule } from 'primeng/dock';
+import { InputNumberComponent } from './components/input-number/input-number.component';
+import { OperatorsComponent } from './components/operators/operators.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyChildComponent
+    MyChildComponent,
+    InputNumberComponent,
+    OperatorsComponent
   ],
   imports: [
     FormsModule,
@@ -46,7 +51,9 @@ import { AutoFocusModule } from 'primeng/autofocus';
     RippleModule,
     AutoCompleteModule,
     OverlayPanelModule,
-    AutoFocusModule
+    AutoFocusModule,
+    InputNumberModule,
+    DockModule
   ],
   providers: [],
   bootstrap: [AppComponent]
