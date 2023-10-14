@@ -936,4 +936,11 @@ button.close {
   .app-main .app-main__inner {
     padding: 15px 15px 0
   }
+
+
+  @media screen and (max-width: 768px) {
+    .app-container {
+      padding-left: 0;
+    }
+  }
 }

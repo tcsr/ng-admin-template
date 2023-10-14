@@ -1,25 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'my-theme.css';
 
+$gutter: 1rem; //for primeflex grid system
+@import "assets/layout/styles/layout/layout.scss";
+@import 'my-theme.css';
+@import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
+@import "../node_modules/primeflex/primeflex.scss";
 
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
 }
 
 .search-wrapper {
   .p-autocomplete-input.p-inputtext {
     border: none;
-    height: 37px;
-    bottom: 7px !important;
-    position: relative;
+    // height: 37px;
+    // bottom: 7px !important;
+    // position: relative;
     box-shadow: none;
-    background-color: transparent;
+    border-radius: 2rem;
+    height: 43px;
+    width: 20rem;
+    background-color: rgba(0, 0, 0, 0.05);
   }
 }
 .form-control {

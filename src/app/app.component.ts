@@ -1,12 +1,18 @@
 import { Component, HostListener } from '@angular/core';
-import { MenuItem } from 'primeng/api';
+// import { KeycloakService } from 'keycloak-angular';
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  providers: [MessageService]
 })
+
 export class AppComponent {
+  declare google: any;
+
+  firstName: any;
 
   isSearchActive = false;
   isSidebarOpen = false;
@@ -33,11 +39,13 @@ export class AppComponent {
   toggleMobileNav() {
     this.isMobileMenuActive = !this.isMobileMenuActive;
     document.querySelector('.app-container')?.classList.toggle('sidebar-mobile-open');
+    this.adjustSidebar();
   }
 
   toggleHeaderNav() {
     this.isHeaderNavActive = !this.isHeaderNavActive;
     // document.querySelector('.app-header__content')?.classList.toggle('header-mobile-open');
+    this.adjustSidebar();
   }
 
   toggleAppMenu() {
@@ -51,7 +59,7 @@ export class AppComponent {
   adjustSidebar() {
     const appContainer = document.querySelector('.app-container');
     if (appContainer) {
-      if (document.body.clientWidth < 1250) {
+      if (window.innerWidth < 1250) {
         appContainer.classList.add('closed-sidebar-mobile', 'closed-sidebar');
       } else {
         appContainer.classList.remove('closed-sidebar-mobile', 'closed-sidebar');
@@ -64,11 +72,18 @@ export class AppComponent {
     this.adjustSidebar();
   }
 
-  constructor() {
+  constructor(private messageService: MessageService) {
     this.adjustSidebar();
   }
 
+  showSuccess() {
+    this.messageService.add({ severity: 'error', summary: 'Success', detail: 'Personal details saved successfully, please click on Next button to proceed with the next steps' });
+  }
+
   ngOnInit() {
+
+    this.loadProfile();
+
     this.items = [
       {
         label: 'File',
@@ -404,6 +419,19 @@ export class AppComponent {
     }
 
     this.filteredCountries = filtered;
+  }
+
+  copyText() {
+    navigator.clipboard.writeText(this.firstName)
+  }
+
+  loadProfile() {
+    //  const userName =  this.keycloakService.getUsername();
+    // console.log(this.keycloakService)
+  }
+
+  logout() {
+    // this.keycloakService.logout();
   }
 
 

@@ -1,0 +1,52 @@
+<div class="layout-topbar">
+  <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+    <i class="pi pi-bars"></i>
+  </button>
+  <a class="layout-topbar-logo" routerLink="">
+    <img src="assets/images/my_logo.svg" alt="logo">
+  </a>
+
+  <!-- <button class="user-menu-link p-link layout-topbar-button" (click)="userMenu.toggle($event)">
+    <i class="pi pi-user"></i>
+  </button> -->
+
+  <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button"
+    (click)="layoutService.showProfileSidebar()">
+    <i class="pi pi-ellipsis-v"></i>
+  </button>
+
+  <div class="orign-name px-4">India</div>
+
+  <div #topbarmenu class="layout-topbar-menu"
+    [ngClass]="{'layout-topbar-menu-mobile-active w-75': layoutService.state.profileSidebarVisible}">
+
+    <div class="search-wrapper">
+      <div class="input-holder">
+        <p-autoComplete [(ngModel)]="selectedMenu" [showEmptyMessage]="true" [suggestions]="filteredItems"
+          (completeMethod)="filterItems($event)" field="label" [minLength]="1" appendTo="body">
+        </p-autoComplete>
+      </div>
+    </div>
+
+    <button class="p-link layout-topbar-button">
+      <i class="pi pi-dollar"></i>
+    </button>
+    <div class="d-flex align-items-center">
+      Admin India
+    </div>
+    <button class="p-link layout-topbar-button" (click)="userMenu.toggle($event)">
+      <i class="pi pi-user"></i>
+    </button>
+  </div>
+</div>
+
+<p-overlayPanel #userMenu [style]="{width: '25em'}">
+  <ng-template pTemplate>
+    <div>
+      Welecome Chandra !!!
+      <div>
+        <img width="100" class="rounded-circle" src="../assets/images/user_avatar.svg" alt="">
+      </div>
+    </div>
+  </ng-template>
+</p-overlayPanel>

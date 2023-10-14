@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,16 +21,22 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { AutoFocusModule } from 'primeng/autofocus';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { DockModule } from 'primeng/dock';
+import { ToastModule } from 'primeng/toast';
 import { InputNumberComponent } from './components/input-number/input-number.component';
 import { OperatorsComponent } from './components/operators/operators.component';
+import { initializeKeycloak } from '../app/init/keycloak-init.factory';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { AppLayoutModule } from './layout/app.layout.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MyChildComponent,
     InputNumberComponent,
-    OperatorsComponent
+    OperatorsComponent,
   ],
   imports: [
     FormsModule,
@@ -53,9 +59,20 @@ import { OperatorsComponent } from './components/operators/operators.component';
     OverlayPanelModule,
     AutoFocusModule,
     InputNumberModule,
-    DockModule
+    ToastModule,
+    StoreModule.forRoot({}, {}),
+    EffectsModule.forRoot([]),
+    AppLayoutModule
   ],
-  providers: [],
+  providers: [
+    // KeycloakService,
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initializeKeycloak,
+    //   multi: true,
+    //   deps: [KeycloakService],
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
